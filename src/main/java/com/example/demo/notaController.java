@@ -257,7 +257,7 @@ public class notaController { // He corregido la mayúscula de la clase por conv
     }
     // --- VER Y FAVORITOS ---
 
-    @GetMapping("/verNotasUsu")
+    @GetMapping("/VerNotasUsu")
     public String verNotas(HttpSession session, Model model) {
         Usuario usuarioSession = (Usuario) session.getAttribute("usuario");
         if (usuarioSession == null) return "redirect:/";
@@ -266,14 +266,14 @@ public class notaController { // He corregido la mayúscula de la clase por conv
         
         model.addAttribute("usuario", usuarioFresco);
         model.addAttribute("notas", usuarioFresco.getNotas());
-        return "verNotasUsu";
+        return "VerNotasUsu";
     }
 
     @PostMapping("/marcarFavorito")
     public String marcarFavorito(HttpSession session, @RequestParam Long id) {
         // Usamos el servicio de Nota que creamos específicamente para esto
         notaServicio.marcarFavorito(id);
-        return "redirect:/verNotasUsu";
+        return "redirect:/VerNotasUsu";
     }
 
     // --- ELIMINAR NOTAS ---
