@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" th:href="@{/css/dashboardStyles.css}"/>
+</head >
+<body>
+<div class="dashboard-container">
+    <h1 class="dashboard-title">Bienvenido <span th:text="${usuario.nombre}"></span>!</h1>
+
+    <div class="button-group">
+        <form action="/nuevaNota" method="get">
+            <button type="submit" class="dashboard-button">Agregar nota</button>
+        </form>
+
+        <form action="/verNotasUsu">
+            <button type="submit" class="dashboard-button">Ver mis notas</button>
+        </form>
+
+        <form action="/modificarNota">
+            <button type="submit" class="dashboard-button">Editar nota</button>
+        </form>
+
+        <form action="/eliminarNotas">
+            <button type="submit" class="dashboard-button">Eliminar nota</button>
+        </form>
+
+        <form action="/logout">
+            <button type="submit" class="dashboard-button">Cerrar sesion</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

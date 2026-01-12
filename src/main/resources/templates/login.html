@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" th:href="@{/css/loginStyles.css}"/>
+</head>
+<body>
+<div class="login-container">    
+    <h1 class="login-title">Bienvenido</h1>
+
+    <div th:if="${mensaje}" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; border: 1px solid #c3e6cb;">
+        <span th:text="${mensaje}"></span>
+    </div>
+
+    <div th:if="${error}" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; border: 1px solid #f5c6cb;">
+        <span th:text="${error}"></span>
+    </div>
+
+    <form action="/login" method="post" class="login-form">
+        <p class="form-group">
+            <label for="nombreUsu">Nombre: </label>
+            <input type="text" name="nombre" id="nombreUsu" class="form-input" required>
+        </p>
+
+        <p class="form-group">
+            <label for="contraseniaUsu">Contraseña: </label>
+            <input type="password" name="contrasenia" id="contraseniaUsu" class="form-input" required>
+        </p>
+
+        <p class="form-group">
+            <input type="submit" value="Entrar" class="form-button">
+        </p>
+    </form>
+
+    <hr style="border: 0; border-top: 1px solid #3399ff; margin: 20px 0;">
+
+    <div style="text-align: center;">
+        <p style="color: #003366;">¿No tienes cuenta?</p>
+        <a href="/registro" class="form-button btn-secondary">Crear Usuario Nuevo</a>
+    </div>
+</div>
+</body>
+</html>

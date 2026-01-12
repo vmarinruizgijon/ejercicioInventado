@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Nota</title>
+    <link rel="stylesheet" th:href="@{/css/editNoteStyles.css}"/>
+</head>
+<body>
+<div class="edit-note-container">
+    <h1 class="edit-note-title">Selecciona la nota a editar</h1>
+
+    <form action="/modificarNota" method="post" class="edit-note-form">
+        <select name="id" class="form-select">
+            <option th:each="nota : ${notas}" th:value="${nota.id}" 
+                    th:text="${nota.id} + ' - ' + ${nota.titulo}"></option>
+        </select>
+        <button type="submit" class="form-button">Editar</button>
+    </form>
+
+    <form action="/dashboard">
+        <input type="submit" value="Volver al menú principal" class="form-button">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f4ff; /* azul muy suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.login-container {
+    background-color: #cce6ff; /* azul claro */
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 320px;
+}
+
+/* Título */
+.login-title {
+    text-align: center;
+    color: #003366; /* azul oscuro */
+    margin-bottom: 20px;
+}
+
+/* Espaciado entre campos */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Etiquetas */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #002244; /* azul más oscuro */
+    font-weight: 500;
+}
+
+/* Inputs de texto y contraseña */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3399ff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botón de enviar */
+.form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3399ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #0066cc;
+}
+
+/* Estilo para el botón secundario (Registrarse) */
+/* Añade esto al final de tu CSS */
+.btn-secondary {
+    background-color: #28a745 !important; /* Verde */
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.btn-secondary:hover {
+    background-color: #218838 !important;
+}

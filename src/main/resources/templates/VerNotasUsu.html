@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Notas</title>
+    <link rel="stylesheet" th:href="@{/css/viewNotesStyles.css}"/>
+</head>
+<body>
+<div class="view-notes-container">
+    <h1 class="view-notes-title">Estas son tus notas <span th:text="${usuario.nombre}"></span></h1>
+
+    <h3 class="view-notes-subtitle">Tus notas:</h3>
+    <table class="notes-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Contenido</th>
+                <th>Favorito</th>
+                <th>Fecha Creación</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nota: ${notas}">
+                <td th:text="${nota.titulo}">Título</td>
+                <td th:text="${nota.contenido}">Contenido</td>
+                <td th:text="${nota.favorito} ? 'Sí' : 'No'"></td>
+                <td th:text="${nota.fecha}">Fecha</td>
+                <td>                
+                    <form th:action="@{/marcarFavorito}" method="post">
+                        <input type="hidden" name="id" th:value="${nota.id}">
+                        <button type="submit" class="favorite-button" 
+                            th:text="${nota.favorito} ? 'Desmarcar favorito' : 'Marcar favorito'">
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="/dashboard">
+        <input type="submit" value="Volver al menú principal" class="form-button">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f4ff; /* azul muy suave */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.edit-note-form-container {
+    background-color: #cce6ff; /* azul claro */
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+/* Título */
+.edit-note-form-title {
+    color: #003366; /* azul oscuro */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+.edit-note-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Inputs y textarea */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3399ff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+/* Botón */
+.form-button {
+    padding: 10px;
+    background-color: #3399ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #0066cc;
+}

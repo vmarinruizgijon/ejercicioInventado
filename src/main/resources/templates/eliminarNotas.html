@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Nota</title>
+    <link rel="stylesheet" th:href="@{/css/deleteNotesStyles.css}"/>
+</head>
+<body>
+<div class="delete-notes-container">
+    <h1 class="delete-notes-title">¿Qué nota quieres eliminar?</h1>
+
+    <form action="/dashboard">
+        <input type="submit" value="Volver al menú principal" class="form-button">
+    </form>
+
+    <h3 class="delete-notes-subtitle">Tus notas:</h3>
+    <table class="notes-table">
+        <thead>
+            <tr>
+                <th>#</th> <th>Título</th>
+                <th>Contenido</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nota, iterStat : ${notas}">
+                <td th:text="${iterStat.index + 1}"></td>
+                
+                <td th:text="${nota.titulo}"></td>
+                <td th:text="${nota.contenido}"></td>
+                <td>
+                    <form th:action="@{/eliminarNotas}" method="post">
+                        <input type="hidden" name="id" th:value="${nota.id}" />
+                        
+                        <button type="submit"  class="delete-button" onclick="return confirm('¿Estás seguro de borrar esta nota?')">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

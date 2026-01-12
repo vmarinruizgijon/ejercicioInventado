@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Nota</title>
+    <link rel="stylesheet" th:href="@{/css/notesStyles.css}"/>
+</head>
+<body>
+<div class="notes-container">
+    <h1 class="notes-title">Hola <span th:text="${usuario.nombre}"></span>, añade tu nota</h1>
+
+    <form action="/nuevaNota" method="post" class="notes-form">
+        <input type="text" name="titulo" placeholder="Título" class="form-input" required>
+        <textarea name="contenido" placeholder="Escribe tu nota" class="form-textarea" required></textarea>
+        <input type="submit" value="Guardar" class="form-button">
+    </form>
+
+    <form action="/dashboard">
+        <input type="submit" value="Volver a Menu Principal" class="form-button">
+    </form>
+</div>
+</body>
+</html>

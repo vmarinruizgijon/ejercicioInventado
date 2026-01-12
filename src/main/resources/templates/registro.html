@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrarse</title>
+    <link rel="stylesheet" th:href="@{/css/loginStyles.css}"/>
+</head>
+<body>
+<div class="login-container">    
+    <h1 class="login-title">Crear Cuenta</h1>
+
+    <div th:if="${error}" style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; border: 1px solid #f5c6cb;">
+        <span th:text="${error}"></span>
+    </div>
+
+    <form action="/registro" method="post" class="login-form">
+
+        <p class="form-group">
+            <label for="nombreReg">Nuevo Usuario: </label>
+            <input type="text" name="nombre" id="nombreReg" class="form-input" placeholder="Elige tu nombre" required>
+        </p>
+
+        <p class="form-group">
+            <label for="contraseniaReg">Nueva Contraseña: </label>
+            <input type="password" name="contrasenia" id="contraseniaReg" class="form-input" placeholder="Elige tu contraseña" required>
+        </p>
+
+        <p class="form-group">
+            <input type="submit" value="Guardar Usuario" class="form-button btn-secondary">
+        </p>
+        
+    </form>
+
+    <div style="text-align: center; margin-top: 15px;">
+        <a href="/" style="color: #003366; text-decoration: none;">Cancelar y volver al Login</a>
+    </div>
+</div>
+</body>
+</html>

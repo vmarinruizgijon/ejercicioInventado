@@ -1,0 +1,47 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f4ff; /* azul muy suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.dashboard-container {
+    background-color: #cce6ff; /* azul claro */
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}
+
+/* Título */
+.dashboard-title {
+    color: #003366; /* azul oscuro */
+    margin-bottom: 25px;
+}
+
+/* Grupo de botones */
+.button-group form {
+    margin-bottom: 15px;
+}
+
+/* Botones */
+.dashboard-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3399ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dashboard-button:hover {
+    background-color: #0066cc;
+}
