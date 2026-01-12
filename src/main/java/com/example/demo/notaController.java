@@ -266,14 +266,14 @@ public class notaController { // He corregido la mayúscula de la clase por conv
         
         model.addAttribute("usuario", usuarioFresco);
         model.addAttribute("notas", usuarioFresco.getNotas());
-        return "verNotasUsu";
+        return "vernotasusu";
     }
 
     @PostMapping("/marcarFavorito")
     public String marcarFavorito(HttpSession session, @RequestParam Long id) {
         // Usamos el servicio de Nota que creamos específicamente para esto
         notaServicio.marcarFavorito(id);
-        return "redirect:/verNotasUsu";
+        return "redirect:/vernotasusu";
     }
 
     // --- ELIMINAR NOTAS ---
