@@ -273,7 +273,7 @@ public class notaController { // He corregido la mayúscula de la clase por conv
     public String marcarFavorito(HttpSession session, @RequestParam Long id) {
         // Usamos el servicio de Nota que creamos específicamente para esto
         notaServicio.marcarFavorito(id);
-        return "redirect:/VerNotasUsu";
+        return "redirect:/verNotasUsu";
     }
 
     // --- ELIMINAR NOTAS ---
