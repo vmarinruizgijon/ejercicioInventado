@@ -257,7 +257,7 @@ public class notaController { // He corregido la mayúscula de la clase por conv
     }
     // --- VER Y FAVORITOS ---
 
-    @GetMapping("/VerNotasUsu")
+    @GetMapping("/verNotasUsu")
     public String verNotas(HttpSession session, Model model) {
         Usuario usuarioSession = (Usuario) session.getAttribute("usuario");
         if (usuarioSession == null) return "redirect:/";
