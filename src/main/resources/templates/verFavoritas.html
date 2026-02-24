@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Notas Favoritas</title>
+    <link rel="stylesheet" th:href="@{/css/viewNotesStyles.css}"/>
+</head>
+<body>
+<div class="view-notes-container">
+    <h1 class="view-notes-title">Tus notas favoritas, <span th:text="${usuario.nombre}"></span></h1>
+
+    <h3 class="view-notes-subtitle">Listado de favoritos:</h3>
+    <table class="notes-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Contenido</th>
+                <th>Fecha Creación</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nota : ${notasFavoritas}">
+                <td th:text="${nota.titulo}">Título</td>
+                <td th:text="${nota.contenido}">Contenido</td>
+                <td th:text="${nota.fecha}">Fecha</td>
+                <td>                
+                    <form th:action="@{/quitarFavoritoDesdeLista}" method="post">
+                        <input type="hidden" name="id" th:value="${nota.id}">
+                        <button type="submit" class="favorite-button">Quitar de favoritos</button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(notasFavoritas)}">
+                <td colspan="4" style="text-align: center; padding: 20px; font-style: italic; color: gray;">
+                    No tienes ninguna nota favorita todavía.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="/dashboard">
+        <input type="submit" value="Volver al menú principal" class="form-button">
+    </form>
+</div>
+</body>
+</html>

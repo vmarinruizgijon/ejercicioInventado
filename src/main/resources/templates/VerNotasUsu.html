@@ -10,6 +10,9 @@
 <div class="view-notes-container">
     <h1 class="view-notes-title">Estas son tus notas <span th:text="${usuario.nombre}"></span></h1>
 
+    <div th:if="${mensaje}" style="color: green; margin-bottom: 15px; font-weight: bold; text-align: center;" th:text="${mensaje}"></div>
+    <div th:if="${error}" style="color: red; margin-bottom: 15px; font-weight: bold; text-align: center;" th:text="${error}"></div>
+
     <h3 class="view-notes-subtitle">Tus notas:</h3>
     <table class="notes-table">
         <thead>
@@ -25,15 +28,34 @@
             <tr th:each="nota: ${notas}">
                 <td th:text="${nota.titulo}">Título</td>
                 <td th:text="${nota.contenido}">Contenido</td>
-                <td th:text="${nota.favorito} ? 'Sí' : 'No'"></td>
+                <td th:text="${#lists.contains(notasFavoritasIds, nota.id)} ? 'Sí' : 'No'"></td>
                 <td th:text="${nota.fecha}">Fecha</td>
-                <td>                
-                    <form th:action="@{/marcarFavorito}" method="post">
+                <td style="display: flex; gap: 5px;"> <form th:action="@{/marcarFavorito}" method="post">
                         <input type="hidden" name="id" th:value="${nota.id}">
                         <button type="submit" class="favorite-button" 
-                            th:text="${nota.favorito} ? 'Desmarcar favorito' : 'Marcar favorito'">
+                            th:text="${#lists.contains(notasFavoritasIds, nota.id)} ? 'Desmarcar favorito' : 'Marcar favorito'">
                         </button>
                     </form>
+
+                    <form th:action="@{/enviarNotaPdf}" method="post">
+                        <input type="hidden" name="id" th:value="${nota.id}">
+                        <button type="submit" class="favorite-button" style="background-color: #28a745;">
+                             Enviar PDF
+                        </button>
+                    </form>
+					
+					<form th:action="@{/verQr}" method="get" style="display:inline;">
+					    <input type="hidden" name="id" th:value="${nota.id}">
+					    <button type="submit" class="favorite-button" style="background-color: #6f42c1;">
+					        Generar QR
+					    </button>
+					</form>
+					<form th:action="@{/historialNota}" method="get" style="display:inline;">
+					    <input type="hidden" name="id" th:value="${nota.id}">
+					    <button type="submit" class="favorite-button" style="background-color: #ffc107; color: black;">
+					        Ver Historial
+					    </button>
+					</form>
                 </td>
             </tr>
         </tbody>

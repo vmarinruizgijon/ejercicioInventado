@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" th:href="@{/css/loginStyles.css}"/> 
+</head>
+<body>
+<div class="login-container">    
+    <h1 class="login-title">Editar Usuario</h1>
+
+    <form action="/admin/editarUsuario" method="post" class="login-form">
+        <input type="hidden" name="id" th:value="${usuarioAEditar.id}">
+
+        <p class="form-group">
+            <label for="nombreEd">Nombre del Usuario: </label>
+            <input type="text" name="nombre" id="nombreEd" class="form-input" th:value="${usuarioAEditar.nombre}" required>
+        </p>
+
+        <p class="form-group">
+            <label for="rolEd">Rol del Sistema: </label>
+            <select name="rol" id="rolEd" class="form-input" required>
+                <option value="ROLE_USER" th:selected="${usuarioAEditar.rol == 'ROLE_USER'}">Usuario Normal</option>
+                <option value="ROLE_ADMIN" th:selected="${usuarioAEditar.rol == 'ROLE_ADMIN'}">Administrador</option>
+            </select>
+        </p>
+
+        <p class="form-group">
+            <input type="submit" value="Guardar Cambios" class="form-button">
+        </p>
+    </form>
+
+    <div style="text-align: center; margin-top: 15px;">
+        <a href="/admin/panel" style="color: #003366; text-decoration: none;">Cancelar y volver al Panel</a>
+    </div>
+</div>
+</body>
+</html>

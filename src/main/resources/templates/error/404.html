@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .error-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 80px;
+            color: #ff6b6b;
+            margin: 0;
+        }
+        h2 { margin-top: 0; color: #495057; }
+        p { color: #6c757d; margin-bottom: 30px; }
+        .btn-volver {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-volver:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>¡Vaya! Te has perdido.</h2>
+        <p>La página que estás buscando no existe o ha sido movida.</p>
+        <a href="/dashboard" class="btn-volver">Volver a un lugar seguro</a>
+    </div>
+</body>
+</html>

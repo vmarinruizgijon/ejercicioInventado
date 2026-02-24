@@ -15,10 +15,14 @@
     </form>
 
     <h3 class="delete-notes-subtitle">Tus notas:</h3>
+    
+    <div th:if="${error}" style="color: red; margin-bottom: 10px;" th:text="${error}"></div>
+
     <table class="notes-table">
         <thead>
             <tr>
-                <th>#</th> <th>Título</th>
+                <th>#</th> 
+                <th>Título</th>
                 <th>Contenido</th>
                 <th>Acción</th>
             </tr>
@@ -26,16 +30,20 @@
         <tbody>
             <tr th:each="nota, iterStat : ${notas}">
                 <td th:text="${iterStat.index + 1}"></td>
-                
                 <td th:text="${nota.titulo}"></td>
                 <td th:text="${nota.contenido}"></td>
+                
                 <td>
-                    <form th:action="@{/eliminarNotas}" method="post">
+                    <span th:if="${#lists.contains(notasFavoritasIds, nota.id)}" style="color: gray; font-style: italic;">
+                        No se puede borrar (es favorita)
+                    </span>
+                    
+                    <form th:unless="${#lists.contains(notasFavoritasIds, nota.id)}" th:action="@{/eliminarNotas}" method="post">
                         <input type="hidden" name="id" th:value="${nota.id}" />
-                        
-                        <button type="submit"  class="delete-button" onclick="return confirm('¿Estás seguro de borrar esta nota?')">Eliminar</button>
+                        <button type="submit" class="delete-button" onclick="return confirm('¿Estás seguro de borrar esta nota?')">Eliminar</button>
                     </form>
                 </td>
+                
             </tr>
         </tbody>
     </table>

@@ -3,11 +3,17 @@ package com.example.demo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-
 import java.time.LocalDate;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.envers.Audited; // IMPORTANTE AÑADIR ESTO
+
+import org.hibernate.envers.NotAudited;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "notas")
+@Audited
 public class Nota {
 
     @Id
@@ -24,12 +30,16 @@ public class Nota {
     private String contenido;
 
     private LocalDate fecha;
-
-    private boolean favorito;
+    
+    @NotAudited
+    @OneToMany(mappedBy = "nota", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Favoritas> marcadaPorUsuarios;
 
     // RELACIÓN: Aquí guardamos quién es el dueño de la nota
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id") // Crea la columna en la BBDD
+    @JsonIgnore
     private Usuario usuario;
 	
  // Constructor personalizado
@@ -37,7 +47,6 @@ public class Nota {
         this.titulo = titulo;
         this.contenido = contenido;
         this.fecha = LocalDate.now(); // Pone la fecha de hoy automáticamente
-        this.favorito = false;
     }
     
     public Nota() {
@@ -81,15 +90,6 @@ public class Nota {
         this.fecha = fecha;
     }
 
-    // Favorito (Atención: los booleanos suelen ser 'is' en vez de 'get')
-    public boolean isFavorito() {
-        return favorito;
-    }
-
-    public void setFavorito(boolean favorito) {
-        this.favorito = favorito;
-    }
-
     // Usuario
     public Usuario getUsuario() {
         return usuario;
@@ -98,22 +98,15 @@ public class Nota {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-	
-	
-	
-	//Métodos
-	//Para marcar fav al atruburo favorito
-	public void marcarFavorito() {
-		
-		this.favorito = true;
-		
-	}
-	//Para marcar fav al atruburo favorito
-	public void desmarcarFavorito() {
-		
-		this.favorito = false;
-		
-	}
+    
+ // Getters y setters
+    public List<Favoritas> getMarcadaPorUsuarios() {
+        return marcadaPorUsuarios;
+    }
+
+    public void setMarcadaPorUsuarios(List<Favoritas> marcadaPorUsuarios) {
+        this.marcadaPorUsuarios = marcadaPorUsuarios;
+    }
 	
 	
 }//Fin class

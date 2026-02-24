@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compartir Nota - QR</title>
+    <link rel="stylesheet" th:href="@{/css/qrStyles.css}"/>
+</head>
+<body>
+
+    <div class="qr-container">
+        <h1>Escanea tu Nota</h1>
+        
+        <div class="nota-info">
+            <h3 th:text="${nota.titulo}">Título de la nota</h3>
+        </div>
+        
+        <div class="qr-frame">
+            <img th:src="'data:image/png;base64,' + ${qrImagen}" alt="Código QR" />
+        </div>
+
+        <p class="instrucciones">
+            Apunta con la cámara de tu móvil para copiar el contenido de la nota al instante.
+        </p>
+        
+        <a href="/verNotasUsu" class="btn-volver">Volver a mis notas</a>
+    </div>
+
+</body>
+</html>

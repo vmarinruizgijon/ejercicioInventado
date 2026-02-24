@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error del Servidor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .error-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid #dc3545;
+        }
+        h1 { font-size: 80px; color: #dc3545; margin: 0; }
+        h2 { margin-top: 0; color: #495057; }
+        p { color: #6c757d; margin-bottom: 30px; }
+        .btn-volver {
+            background-color: #343a40;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-volver:hover { background-color: #23272b; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>500</h1>
+        <h2>¡Ups! Algo se ha roto.</h2>
+        <p>Nuestros servidores han tenido un pequeño accidente técnico. Por favor, inténtalo de nuevo más tarde.</p>
+        <a href="/dashboard" class="btn-volver">Volver al inicio</a>
+    </div>
+</body>
+</html>

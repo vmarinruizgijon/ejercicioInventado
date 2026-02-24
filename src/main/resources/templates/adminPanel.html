@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" th:href="@{/css/viewNotesStyles.css}"/>
+</head>
+<body>
+<div class="view-notes-container" style="max-width: 800px;"> <h1 class="view-notes-title">Panel de Control</h1>
+    <h3 class="view-notes-subtitle" th:text="'Administrador: ' + ${admin.nombre}"></h3>
+
+    <div th:if="${mensaje}" style="color: green; margin-bottom: 15px; text-align: center; font-weight: bold;" th:text="${mensaje}"></div>
+    <div th:if="${error}" style="color: red; margin-bottom: 15px; text-align: center; font-weight: bold;" th:text="${error}"></div>
+
+    <table class="notes-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre Usuario</th>
+                <th>Rol</th>
+                <th>Notas Creadas</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="usu : ${usuarios}">
+                <td th:text="${usu.id}"></td>
+                <td th:text="${usu.nombre}"></td>
+                
+                <td th:text="${usu.rol == 'ROLE_ADMIN' ? ' Admin' : 'Usuario'}"></td>
+                
+                <td th:text="${#lists.size(usu.notas)}"></td>
+                
+                <td style="display: flex; gap: 10px; justify-content: center;">
+                    <form th:action="@{/admin/editarUsuario}" method="get">
+                        <input type="hidden" name="id" th:value="${usu.id}">
+                        <button type="submit" class="favorite-button" style="background-color: #ff9900;">Editar</button>
+                    </form>
+
+                    <form th:if="${usu.id != admin.id}" th:action="@{/admin/eliminarUsuario}" method="post">
+                        <input type="hidden" name="id" th:value="${usu.id}">
+                        <button type="submit" class="favorite-button" style="background-color: #cc0000;" onclick="return confirm('¿Seguro que quieres borrar a este usuario y TODAS sus notas?')">Eliminar</button>
+                    </form>
+                    <span th:if="${usu.id == admin.id}" style="color: gray; font-size: 0.9em;">(Tú)</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="/dashboard" style="margin-top: 20px;">
+        <input type="submit" value="Volver al Dashboard" class="form-button">
+    </form>
+</div>
+</body>
+</html>

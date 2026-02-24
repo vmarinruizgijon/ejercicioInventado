@@ -17,21 +17,21 @@
         <span th:text="${error}"></span>
     </div>
 
-    <form action="/login" method="post" class="login-form">
-        <p class="form-group">
-            <label for="nombreUsu">Nombre: </label>
-            <input type="text" name="nombre" id="nombreUsu" class="form-input" required>
-        </p>
+	<form action="/login" method="post" class="login-form">
+	        <p class="form-group">
+	            <label for="nombreUsu">Nombre: </label>
+	            <input type="text" name="username" id="nombreUsu" class="form-input" required>
+	        </p>
 
-        <p class="form-group">
-            <label for="contraseniaUsu">Contraseña: </label>
-            <input type="password" name="contrasenia" id="contraseniaUsu" class="form-input" required>
-        </p>
+	        <p class="form-group">
+	            <label for="contraseniaUsu">Contraseña: </label>
+	            <input type="password" name="password" id="contraseniaUsu" class="form-input" required>
+	        </p>
 
-        <p class="form-group">
-            <input type="submit" value="Entrar" class="form-button">
-        </p>
-    </form>
+	        <p class="form-group">
+	            <input type="submit" value="Entrar" class="form-button">
+	        </p>
+	    </form>
 
     <hr style="border: 0; border-top: 1px solid #3399ff; margin: 20px 0;">
 

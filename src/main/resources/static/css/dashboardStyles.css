@@ -45,3 +45,42 @@ body {
 .dashboard-button:hover {
     background-color: #0066cc;
 }
+
+/* --- ESTILOS PARA LOS BOTONES DE LA ESQUINA SUPERIOR DERECHA --- */
+
+.top-right-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px; /* Espacio entre los botones si aparecen varios */
+}
+
+/* Evitamos que el formulario añada márgenes extra por defecto */
+.top-right-container form {
+    margin-bottom: 0; 
+}
+
+/* Botón de Mi Perfil */
+.profile-button {
+    background-color: #17a2b8; /* Azul verdoso para diferenciarlo */
+    width: auto; 
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.profile-button:hover {
+    background-color: #138496;
+}
+
+/* Botón de Administrador */
+.admin-button {
+    background-color: #003366; /* Azul más oscuro y formal */
+    width: auto; 
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.admin-button:hover {
+    background-color: #002244;
+}

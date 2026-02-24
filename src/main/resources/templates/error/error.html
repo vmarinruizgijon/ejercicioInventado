@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ha ocurrido un problema</title>
+    <style>
+        /* Mismos estilos base que antes */
+        body { font-family: sans-serif; background: #f8f9fa; text-align: center; padding-top: 100px; }
+        .error-container { max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-volver { background: #6f42c1; color: white; text-decoration: none; padding: 12px 25px; border-radius: 50px; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 th:text="${status}">Error</h1>
+        <h2 th:text="${error}">Ha ocurrido un problema</h2>
+        <p>No hemos podido procesar tu solicitud correctamente.</p>
+        <a href="/dashboard" class="btn-volver">Volver a inicio</a>
+    </div>
+</body>
+</html>

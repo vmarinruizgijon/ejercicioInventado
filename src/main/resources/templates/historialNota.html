@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Modificaciones</title>
+    <link rel="stylesheet" th:href="@{/css/viewNotesStyles.css}"/>
+</head>
+<body style="padding: 30px;">
+    
+    <div class="view-notes-container">
+        <h1 class="view-notes-title">Máquina del Tiempo</h1>
+        <h3 class="view-notes-subtitle">Historial de la nota: <span th:text="${notaActual.titulo}"></span></h3>
+
+        <table class="notes-table">
+            <thead>
+                <tr>
+                    <th>Versión (Título que tenía)</th>
+                    <th>Contenido que tenía</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="notaAntigua : ${historial}">
+                    <td th:text="${notaAntigua.titulo}">Título Antiguo</td>
+                    <td th:text="${notaAntigua.contenido}">Contenido Antiguo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <a href="/verNotasUsu" class="form-button" style="text-decoration: none; display: inline-block;">Volver a mis notas</a>
+    </div>
+
+</body>
+</html>
