@@ -174,7 +174,6 @@ public class notaController {
         
         model.addAttribute("usuario", usuarioFresco);
         model.addAttribute("notas", usuarioFresco.getNotas());
-<<<<<<< HEAD
         
         return "modificarNota"; 
     }
@@ -237,9 +236,6 @@ public class notaController {
         model.addAttribute("notasFavoritasIds", notasFavoritasIds); 
         
         return "verNotasUsu";
-=======
-        return "VerNotasUsu";
->>>>>>> 00f1de5045157bfa3e5d942bb3746fb14f4448c4
     }
     
     @GetMapping("/verFavoritas")
@@ -311,7 +307,6 @@ public class notaController {
         
         return "redirect:/eliminarNotas";
     }
-<<<<<<< HEAD
     
 
     //           -- ZONA ADMINISTRADOR --
@@ -511,6 +506,3 @@ public class notaController {
     }
     
 }
-=======
-}
->>>>>>> 00f1de5045157bfa3e5d942bb3746fb14f4448c4
