@@ -235,7 +235,7 @@ public class notaController {
         model.addAttribute("notas", usuarioFresco.getNotas());
         model.addAttribute("notasFavoritasIds", notasFavoritasIds); 
         
-        return "verNotasUsu";
+        return "VerNotasUsu";
     }
     
     @GetMapping("/verFavoritas")
