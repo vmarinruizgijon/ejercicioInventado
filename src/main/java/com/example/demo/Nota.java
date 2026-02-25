@@ -99,7 +99,7 @@ public class Nota {
         this.usuario = usuario;
     }
     
- // Getters y setters
+    //Favoritos
     public List<Favoritas> getMarcadaPorUsuarios() {
         return marcadaPorUsuarios;
     }

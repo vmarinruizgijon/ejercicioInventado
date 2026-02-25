@@ -38,7 +38,7 @@ public class EmailService {
         document.add(new Paragraph(nota.getContenido(), fontCuerpo));
         document.close();
 
-        // 2. Crear el mensaje de correo con adjunto [cite: 20, 21, 22]
+        // 2. Crear el mensaje de correo con adjunto
         MimeMessage mensaje = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mensaje, true);
         
@@ -47,10 +47,10 @@ public class EmailService {
         helper.setText("Hola,\n\nAdjunto encontrarás tu nota en formato PDF.\n\nUn saludo!");
         helper.setFrom("victor.marin-manzanares@iesruizgijon.com"); // Reemplaza con tu correo
 
-        // 3. Adjuntar el PDF [cite: 23]
+        // 3. Adjuntar el PDF
         helper.addAttachment("Nota_" + nota.getId() + ".pdf", new ByteArrayResource(out.toByteArray()));
 
-        // 4. Enviar [cite: 24]
+        // 4. Enviar
         mailSender.send(mensaje);
     }
 }
